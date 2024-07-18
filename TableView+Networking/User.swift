@@ -10,6 +10,7 @@ import Foundation
 struct Users: Decodable {
     let users: [User]
 }
+
 struct User: Decodable {
     let id: Int
     let firstName: String
