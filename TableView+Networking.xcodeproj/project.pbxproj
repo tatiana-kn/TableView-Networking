@@ -14,7 +14,8 @@
 		14B4734D2C32BC200058639D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B4734C2C32BC200058639D /* Assets.xcassets */; };
 		14B473502C32BC200058639D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 14B4734F2C32BC200058639D /* Base */; };
 		14B473582C32C54E0058639D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B473572C32C54E0058639D /* User.swift */; };
-		14B4735A2C32C67F0058639D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B473592C32C67F0058639D /* NetworkManager.swift */; };
+		14CE82132C492ECD00381F06 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE82122C492ECD00381F06 /* NetworkClient.swift */; };
+		14CE82152C4935F400381F06 /* UsersLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE82142C4935F400381F06 /* UsersLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		14B4734F2C32BC200058639D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14B473512C32BC200058639D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B473572C32C54E0058639D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		14B473592C32C67F0058639D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		14CE82122C492ECD00381F06 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		14CE82142C4935F400381F06 /* UsersLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,8 @@
 				14B4734E2C32BC200058639D /* LaunchScreen.storyboard */,
 				14B473512C32BC200058639D /* Info.plist */,
 				14B473572C32C54E0058639D /* User.swift */,
-				14B473592C32C67F0058639D /* NetworkManager.swift */,
+				14CE82122C492ECD00381F06 /* NetworkClient.swift */,
+				14CE82142C4935F400381F06 /* UsersLoader.swift */,
 			);
 			path = "TableView+Networking";
 			sourceTree = "<group>";
@@ -146,9 +149,10 @@
 			files = (
 				14B473582C32C54E0058639D /* User.swift in Sources */,
 				14B473482C32BC1D0058639D /* ViewController.swift in Sources */,
-				14B4735A2C32C67F0058639D /* NetworkManager.swift in Sources */,
 				14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */,
 				14B473462C32BC1D0058639D /* SceneDelegate.swift in Sources */,
+				14CE82132C492ECD00381F06 /* NetworkClient.swift in Sources */,
+				14CE82152C4935F400381F06 /* UsersLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,9 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    private let networkManager = NetworkManager.shared
     private var users: [User] = []
-    private let url = URL(string: "https://dummyjson.com/users")!
+    
+    private let usersLoader: UsersLoading = UsersLoader(networkClient: NetworkClient(), decoder: JSONDecoder())
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
         
         setupViews()
         setupConstraints()
-        fetchUsers()
+        loadUsers()
     }
 }
 
@@ -64,13 +64,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ViewController {
-    private func fetchUsers() {
-        networkManager.fetchUser(from: url) { [weak self] result in
+
+    private func loadUsers() {
+        usersLoader.loadUsers { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let users):
                 self.users = users.users
-                tableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }
@@ -81,4 +85,3 @@ extension ViewController {
 #Preview(traits: .portrait) {
     ViewController()
 }
-

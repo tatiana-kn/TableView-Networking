@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Users: Decodable {
+struct Users: Codable {
     let users: [User]
 }
 
-struct User: Decodable {
+struct User: Codable {
     let id: Int
     let firstName: String
     let lastName: String
