@@ -7,11 +7,27 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class UsersConfigurator {
+    
+    func configure() -> UsersViewController {
+        
+        let controller = UsersViewController()
+        
+        let networkClient = NetworkClient()
+        let decoder = JSONDecoder()
+        
+        controller.usersLoader = UsersLoader.init(networkClient: networkClient, decoder: decoder)
+        
+        return controller
+    }
+}
+
+
+final class UsersViewController: UIViewController {
     
     private var users: [User] = []
     
-    private let usersLoader: UsersLoading = UsersLoader(networkClient: NetworkClient(), decoder: JSONDecoder())
+    var usersLoader: UsersLoading = UsersLoader()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -30,7 +46,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension UsersViewController {
     private func setupViews() {
         view.addSubview(tableView)
     }
@@ -47,7 +63,7 @@ extension ViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         users.count
     }
@@ -63,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ViewController {
+extension UsersViewController {
 
     private func loadUsers() {
         usersLoader.loadUsers { [weak self] result in
@@ -83,5 +99,5 @@ extension ViewController {
 }
 
 #Preview(traits: .portrait) {
-    ViewController()
+    UsersViewController()
 }

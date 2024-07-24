@@ -15,7 +15,7 @@ struct UsersLoader: UsersLoading {
     private let networkClient: NetworkRouting
     private let decoder: JSONDecoder
     
-    init(networkClient: NetworkRouting, decoder: JSONDecoder) {
+    init(networkClient: NetworkRouting = NetworkClient(), decoder: JSONDecoder = JSONDecoder()) {
         self.networkClient = networkClient
         self.decoder = decoder
     }
