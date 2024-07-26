@@ -7,27 +7,11 @@
 
 import UIKit
 
-final class UsersConfigurator {
-    
-    func configure() -> UsersViewController {
-        
-        let controller = UsersViewController()
-        
-        let networkClient = NetworkClient()
-        let decoder = JSONDecoder()
-        
-        controller.usersLoader = UsersLoader.init(networkClient: networkClient, decoder: decoder)
-        
-        return controller
-    }
-}
-
-
 final class UsersViewController: UIViewController {
     
-    private var users: [User] = []
-    
-    var usersLoader: UsersLoading = UsersLoader()
+    var viewModel = UsersViewModel()
+    //    private var users: [User] = []
+    //    var usersLoader: UsersLoading = UsersLoader()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -36,13 +20,26 @@ final class UsersViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setupConstraints()
-        loadUsers()
+        viewModel.loadUsers()
+        
+        viewModel.users.bind { [weak self] _ in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        //        viewModel.didLoadUsers = {
+        //            DispatchQueue.main.async { [weak self] in
+        //                guard let self else { return }
+        //                self.tableView.reloadData()
+        //            }
+        //        }
     }
 }
 
@@ -65,38 +62,40 @@ extension UsersViewController {
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
+        //        viewModel.users.count
+        viewModel.users.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let user = users[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = user.fullName
-        content.secondaryText = user.username
-        cell.contentConfiguration = content
+        //        let user = viewModel.users[indexPath.row]
+        if let user = viewModel.users.value?[indexPath.row] {
+            var content = cell.defaultContentConfiguration()
+            content.text = user.fullName
+            content.secondaryText = user.username
+            cell.contentConfiguration = content
+        }
         return cell
     }
 }
 
-extension UsersViewController {
-
-    private func loadUsers() {
-        usersLoader.loadUsers { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let users):
-                self.users = users.users
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-}
+//extension UsersViewController {
+//
+//    private func loadUsers() {
+//        usersLoader.loadUsers { [weak self] result in
+//            guard let self else { return }
+//            switch result {
+//            case .success(let users):
+//                self.users = users.users
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+//}
 
 #Preview(traits: .portrait) {
     UsersViewController()
