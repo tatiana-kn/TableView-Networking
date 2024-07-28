@@ -7,11 +7,23 @@
 
 import Foundation
 
-class UsersViewModel  {
+protocol IUsersViewModel {
+    
+    var users: Observable<[User]> { get set}
+    
+    func loadUsers()
+}
+
+class UsersViewModel: IUsersViewModel {
     //    var users: [User] = []
     var users: Observable<[User]> = Observable([])
-    var usersLoader: UsersLoading = UsersLoader()
+    private var usersLoader: IUsersLoader
     //    var didLoadUsers: (() -> Void)?
+    
+    
+    init(usersLoader: IUsersLoader) {
+        self.usersLoader = usersLoader
+    }
     
     func loadUsers() {
         usersLoader.loadUsers { [weak self] result in

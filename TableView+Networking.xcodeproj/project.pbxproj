@@ -57,22 +57,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1413BDD22C51417E00D5642A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				14B473472C32BC1D0058639D /* UsersViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		1413BDD32C51419000D5642A /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				1413BDD72C51473C00D5642A /* UsersViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		1413BDD42C5141D100D5642A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +80,37 @@
 		1413BDD62C51432100D5642A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				14CE82122C492ECD00381F06 /* NetworkClient.swift */,
-				14CE82142C4935F400381F06 /* UsersLoader.swift */,
-				1413BDD92C51483500D5642A /* UsersConfigurator.swift */,
+				1413BDDB2C539E7500D5642A /* Observable.swift */,
+				1413BDDF2C53CDA300D5642A /* Networking Layer */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1413BDDD2C53CC3500D5642A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1413BDDE2C53CC5900D5642A /* Users */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1413BDDE2C53CC5900D5642A /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				1413BDD92C51483500D5642A /* UsersConfigurator.swift */,
+				14B473472C32BC1D0058639D /* UsersViewController.swift */,
+				1413BDD72C51473C00D5642A /* UsersViewModel.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		1413BDDF2C53CDA300D5642A /* Networking Layer */ = {
+			isa = PBXGroup;
+			children = (
+				14CE82122C492ECD00381F06 /* NetworkClient.swift */,
+				14CE82142C4935F400381F06 /* UsersLoader.swift */,
+			);
+			path = "Networking Layer";
 			sourceTree = "<group>";
 		};
 		14B473372C32BC1D0058639D = {
@@ -123,12 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				1413BDD52C5142AB00D5642A /* App */,
-				1413BDD32C51419000D5642A /* ViewModels */,
-				1413BDD22C51417E00D5642A /* Views */,
+				1413BDDD2C53CC3500D5642A /* Modules */,
 				1413BDD12C51417500D5642A /* Models */,
 				1413BDD62C51432100D5642A /* Services */,
 				1413BDD42C5141D100D5642A /* Resources */,
-				1413BDDB2C539E7500D5642A /* Observable.swift */,
 			);
 			path = "TableView+Networking";
 			sourceTree = "<group>";

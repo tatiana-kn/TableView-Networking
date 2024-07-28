@@ -9,7 +9,15 @@ import UIKit
 
 final class UsersViewController: UIViewController {
     
-    var viewModel = UsersViewModel()
+    var viewModel: IUsersViewModel
+    
+    init(viewModel: IUsersViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     //    private var users: [User] = []
     //    var usersLoader: UsersLoading = UsersLoader()
     
@@ -28,12 +36,9 @@ final class UsersViewController: UIViewController {
         setupConstraints()
         viewModel.loadUsers()
         
-        viewModel.users.bind { [weak self] _ in
-            guard let self else { return }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        setupBindings()
+        
+        
         //        viewModel.didLoadUsers = {
         //            DispatchQueue.main.async { [weak self] in
         //                guard let self else { return }
@@ -44,7 +49,19 @@ final class UsersViewController: UIViewController {
 }
 
 extension UsersViewController {
+    func setupBindings() {
+        viewModel.users.bind { [weak self] _ in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+}
+
+extension UsersViewController {
     private func setupViews() {
+        view.backgroundColor = .white
         view.addSubview(tableView)
     }
     
@@ -97,6 +114,6 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
 //}
 
-#Preview(traits: .portrait) {
-    UsersViewController()
-}
+//#Preview(traits: .portrait) {
+//    UsersViewController()
+//}
