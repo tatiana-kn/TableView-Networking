@@ -9,17 +9,16 @@ import Foundation
 
 protocol IUsersViewModel {
     
-    var users: Observable<[User]> { get set}
+    var users: Observable<[User]> { get set }
     
     func loadUsers()
 }
 
-class UsersViewModel: IUsersViewModel {
+final class UsersViewModel: IUsersViewModel {
     //    var users: [User] = []
     var users: Observable<[User]> = Observable([])
     private var usersLoader: IUsersLoader
     //    var didLoadUsers: (() -> Void)?
-    
     
     init(usersLoader: IUsersLoader) {
         self.usersLoader = usersLoader

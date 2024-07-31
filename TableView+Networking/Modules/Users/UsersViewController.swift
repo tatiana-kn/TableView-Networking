@@ -25,7 +25,9 @@ final class UsersViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseID)
+
         return tableView
     }()
     
@@ -84,16 +86,25 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
+            return UITableViewCell()
+        }
+        
         //        let user = viewModel.users[indexPath.row]
         if let user = viewModel.users.value?[indexPath.row] {
-            var content = cell.defaultContentConfiguration()
-            content.text = user.fullName
-            content.secondaryText = user.username
-            cell.contentConfiguration = content
+            cell.update(user)
+//            var content = cell.defaultContentConfiguration()
+//            content.text = user.fullName
+//            content.secondaryText = user.username
+//            cell.contentConfiguration = content
         }
         return cell
     }
+}
+
+#Preview(traits: .portrait) {
+    UsersViewController(viewModel: MockUser())
 }
 
 //extension UsersViewController {
@@ -112,8 +123,4 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
 //            }
 //        }
 //    }
-//}
-
-//#Preview(traits: .portrait) {
-//    UsersViewController()
 //}

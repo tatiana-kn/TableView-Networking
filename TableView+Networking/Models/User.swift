@@ -22,4 +22,12 @@ struct User: Codable {
     }
 }
 
-
+struct MockUser: IUsersViewModel {
+    var users: Observable<[User]> = Observable([
+        User(id: 1, firstName: "John", lastName: "Doe", username: "johndoe"),
+        User(id: 2, firstName: "Jane", lastName: "Doe", username: "janedoe")
+    ])
+    
+    func loadUsers() {
+    }
+}
