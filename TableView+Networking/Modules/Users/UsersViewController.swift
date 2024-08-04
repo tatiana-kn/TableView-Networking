@@ -40,7 +40,6 @@ final class UsersViewController: UIViewController {
         
         setupBindings()
         
-        
         //        viewModel.didLoadUsers = {
         //            DispatchQueue.main.async { [weak self] in
         //                guard let self else { return }
