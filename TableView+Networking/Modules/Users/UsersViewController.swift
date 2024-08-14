@@ -18,14 +18,11 @@ final class UsersViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //    private var users: [User] = []
-    //    var usersLoader: UsersLoading = UsersLoader()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseID)
 
         return tableView
@@ -39,13 +36,6 @@ final class UsersViewController: UIViewController {
         viewModel.loadUsers()
         
         setupBindings()
-        
-        //        viewModel.didLoadUsers = {
-        //            DispatchQueue.main.async { [weak self] in
-        //                guard let self else { return }
-        //                self.tableView.reloadData()
-        //            }
-        //        }
     }
 }
 
@@ -80,25 +70,25 @@ extension UsersViewController {
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        viewModel.users.count
         viewModel.users.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
             return UITableViewCell()
         }
-        
-        //        let user = viewModel.users[indexPath.row]
         if let user = viewModel.users.value?[indexPath.row] {
             cell.update(user)
-//            var content = cell.defaultContentConfiguration()
-//            content.text = user.fullName
-//            content.secondaryText = user.username
-//            cell.contentConfiguration = content
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let user = viewModel.users.value?[indexPath.row] {
+            let viewModel = DetailsViewModel(user: user)
+            let detailsVC = DetailsViewController(viewModel: viewModel)
+            present(detailsVC, animated: true)
+        }
     }
 }
 
@@ -106,20 +96,4 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     UsersViewController(viewModel: MockUser())
 }
 
-//extension UsersViewController {
-//
-//    private func loadUsers() {
-//        usersLoader.loadUsers { [weak self] result in
-//            guard let self else { return }
-//            switch result {
-//            case .success(let users):
-//                self.users = users.users
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
-//}
+
