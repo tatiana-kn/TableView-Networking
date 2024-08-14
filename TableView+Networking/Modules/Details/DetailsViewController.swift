@@ -8,7 +8,7 @@
 import UIKit
 
 final class DetailsViewController: UIViewController {
-    var viewModel: DetailsViewModel
+    var viewModel: IDetailsViewModel
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -43,7 +43,7 @@ final class DetailsViewController: UIViewController {
         return label
     }()
     
-    init(viewModel: DetailsViewModel) {
+    init(viewModel: IDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
@@ -58,13 +58,13 @@ final class DetailsViewController: UIViewController {
         
         setupViews()
         setupConstraints()
-        update()
+        update(viewModel.user)
     }
     
-    func update() {
-        nameLabel.text = viewModel.user.fullName
-        phoneLabel.text = viewModel.user.phone
-        emailLabel.text = viewModel.user.email
+    func update(_ user: Observable<User>) {
+        nameLabel.text = user.value?.fullName
+        phoneLabel.text = user.value?.phone
+        emailLabel.text = user.value?.email
     }
 }
 

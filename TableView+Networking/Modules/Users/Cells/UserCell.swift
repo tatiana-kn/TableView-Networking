@@ -49,7 +49,6 @@ final class UserCell: UITableViewCell {
         userFullNameLabel.text = user.fullName
         userNameLabel.text = user.username
     }
-    
 }
 
 extension UserCell {

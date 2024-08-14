@@ -85,7 +85,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let user = viewModel.users.value?[indexPath.row] {
-            let viewModel = DetailsViewModel(user: user)
+            let viewModel = DetailsViewModel(user: Observable(user))
             let detailsVC = DetailsViewController(viewModel: viewModel)
             present(detailsVC, animated: true)
         }
