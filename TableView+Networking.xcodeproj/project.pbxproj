@@ -16,6 +16,7 @@
 		14B473582C32C54E0058639D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B473572C32C54E0058639D /* User.swift */; };
 		14CE82132C492ECD00381F06 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE82122C492ECD00381F06 /* NetworkClient.swift */; };
 		14CE82152C4935F400381F06 /* UsersLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE82142C4935F400381F06 /* UsersLoader.swift */; };
+		14DBF35E2C6F4B0D006AED4B /* UsersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		14B473572C32C54E0058639D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14CE82122C492ECD00381F06 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		14CE82142C4935F400381F06 /* UsersLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLoader.swift; sourceTree = "<group>"; };
+		14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +64,59 @@
 		14B473422C32BC1D0058639D /* TableView+Networking */ = {
 			isa = PBXGroup;
 			children = (
+				14DBF3582C6F4A05006AED4B /* App */,
+				14DBF3592C6F4A20006AED4B /* Modules */,
+				14DBF35A2C6F4A47006AED4B /* Models */,
+				14DBF35B2C6F4A5D006AED4B /* Services */,
+				14DBF35C2C6F4A87006AED4B /* Resources */,
+			);
+			path = "TableView+Networking";
+			sourceTree = "<group>";
+		};
+		14DBF3582C6F4A05006AED4B /* App */ = {
+			isa = PBXGroup;
+			children = (
 				14B473432C32BC1D0058639D /* AppDelegate.swift */,
 				14B473452C32BC1D0058639D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		14DBF3592C6F4A20006AED4B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
 				14B473472C32BC1D0058639D /* UsersViewController.swift */,
-				14B473492C32BC1D0058639D /* Main.storyboard */,
-				14B4734C2C32BC200058639D /* Assets.xcassets */,
-				14B4734E2C32BC200058639D /* LaunchScreen.storyboard */,
-				14B473512C32BC200058639D /* Info.plist */,
+				14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		14DBF35A2C6F4A47006AED4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				14B473572C32C54E0058639D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		14DBF35B2C6F4A5D006AED4B /* Services */ = {
+			isa = PBXGroup;
+			children = (
 				14CE82122C492ECD00381F06 /* NetworkClient.swift */,
 				14CE82142C4935F400381F06 /* UsersLoader.swift */,
 			);
-			path = "TableView+Networking";
+			path = Services;
+			sourceTree = "<group>";
+		};
+		14DBF35C2C6F4A87006AED4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14B473492C32BC1D0058639D /* Main.storyboard */,
+				14B4734E2C32BC200058639D /* LaunchScreen.storyboard */,
+				14B473512C32BC200058639D /* Info.plist */,
+				14B4734C2C32BC200058639D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +194,7 @@
 				14B473482C32BC1D0058639D /* UsersViewController.swift in Sources */,
 				14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */,
 				14B473462C32BC1D0058639D /* SceneDelegate.swift in Sources */,
+				14DBF35E2C6F4B0D006AED4B /* UsersConfigurator.swift in Sources */,
 				14CE82132C492ECD00381F06 /* NetworkClient.swift in Sources */,
 				14CE82152C4935F400381F06 /* UsersLoader.swift in Sources */,
 			);
@@ -305,7 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TableView+Networking/Info.plist";
+				INFOPLIST_FILE = "TableView+Networking/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -336,7 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TableView+Networking/Info.plist";
+				INFOPLIST_FILE = "TableView+Networking/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
