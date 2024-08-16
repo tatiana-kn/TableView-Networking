@@ -60,6 +60,13 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         cell.update(user)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        let detailsVC = DetailsViewController()
+        detailsVC.update(user)
+        present(detailsVC, animated: true)
+    }
 }
 
 extension UsersViewController {
