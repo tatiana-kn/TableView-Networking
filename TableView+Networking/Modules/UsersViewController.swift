@@ -17,7 +17,7 @@ final class UsersViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseID)
         return tableView
     }()
 
@@ -53,12 +53,11 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
+            return UITableViewCell()
+        }
         let user = users[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = user.fullName
-        content.secondaryText = user.username
-        cell.contentConfiguration = content
+        cell.update(user)
         return cell
     }
 }
