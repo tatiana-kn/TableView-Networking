@@ -45,9 +45,9 @@ final class UserCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(_ user: User) {
-        userFullNameLabel.text = user.fullName
-        userNameLabel.text = user.username
+    func update(_ user: User?) {
+        userFullNameLabel.text = user?.fullName
+        userNameLabel.text = user?.username
     }
 }
 

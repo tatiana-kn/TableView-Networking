@@ -19,6 +19,10 @@
 		14DBF35E2C6F4B0D006AED4B /* UsersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */; };
 		14DBF3612C6F5123006AED4B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF3602C6F5123006AED4B /* UserCell.swift */; };
 		14DBF3652C6F6B40006AED4B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF3642C6F6B40006AED4B /* DetailsViewController.swift */; };
+		14DBF3692C6FE12B006AED4B /* DetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF3682C6FE12B006AED4B /* DetailsConfigurator.swift */; };
+		14DBF36B2C6FE158006AED4B /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF36A2C6FE158006AED4B /* DetailsPresenter.swift */; };
+		14DBF36D2C6FE1F3006AED4B /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */; };
+		14DBF36F2C6FE253006AED4B /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersConfigurator.swift; sourceTree = "<group>"; };
 		14DBF3602C6F5123006AED4B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		14DBF3642C6F6B40006AED4B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		14DBF3682C6FE12B006AED4B /* DetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsConfigurator.swift; sourceTree = "<group>"; };
+		14DBF36A2C6FE158006AED4B /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
+		14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +142,9 @@
 		14DBF3622C6F6AFD006AED4B /* UsersScreen */ = {
 			isa = PBXGroup;
 			children = (
+				14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */,
 				14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */,
+				14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */,
 				14B473472C32BC1D0058639D /* UsersViewController.swift */,
 				14DBF35F2C6F5102006AED4B /* Cells */,
 			);
@@ -144,6 +154,8 @@
 		14DBF3632C6F6B09006AED4B /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				14DBF3682C6FE12B006AED4B /* DetailsConfigurator.swift */,
+				14DBF36A2C6FE158006AED4B /* DetailsPresenter.swift */,
 				14DBF3642C6F6B40006AED4B /* DetailsViewController.swift */,
 			);
 			path = DetailsScreen;
@@ -221,10 +233,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				14DBF3612C6F5123006AED4B /* UserCell.swift in Sources */,
+				14DBF36F2C6FE253006AED4B /* UsersPresenter.swift in Sources */,
+				14DBF3692C6FE12B006AED4B /* DetailsConfigurator.swift in Sources */,
 				14B473582C32C54E0058639D /* User.swift in Sources */,
 				14DBF3652C6F6B40006AED4B /* DetailsViewController.swift in Sources */,
 				14B473482C32BC1D0058639D /* UsersViewController.swift in Sources */,
+				14DBF36B2C6FE158006AED4B /* DetailsPresenter.swift in Sources */,
 				14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */,
+				14DBF36D2C6FE1F3006AED4B /* UsersRouter.swift in Sources */,
 				14B473462C32BC1D0058639D /* SceneDelegate.swift in Sources */,
 				14DBF35E2C6F4B0D006AED4B /* UsersConfigurator.swift in Sources */,
 				14CE82132C492ECD00381F06 /* NetworkClient.swift in Sources */,

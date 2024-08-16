@@ -7,11 +7,22 @@
 
 import UIKit
 
-final class UsersViewController: UIViewController {
+protocol IUsersViewController: AnyObject {
     
-    private var users: [User] = []
+    var presenter: IUsersPresenter? { get set }
     
-    var usersLoader: UsersLoading = UsersLoader()
+    //Update View
+    func reloadTable()
+    
+    //Navigation
+    //func navigateToDetailsScreen(_ user: User?)
+}
+
+final class UsersViewController: UIViewController, IUsersViewController {
+
+    var presenter: IUsersPresenter?
+    
+    //var usersLoader: UsersLoading = UsersLoader()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -26,7 +37,13 @@ final class UsersViewController: UIViewController {
         
         setupViews()
         setupConstraints()
-        loadUsers()
+        
+        presenter?.viewDidLoad()
+        //loadUsers()
+    }
+    
+    func reloadTable() {
+        tableView.reloadData()
     }
 }
 
@@ -49,42 +66,35 @@ extension UsersViewController {
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
+        //users.count
+        presenter?.getUsersCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
             return UITableViewCell()
         }
-        let user = users[indexPath.row]
+        //let user = users[indexPath.row]
+        
+        let user = presenter?.getUser(index: indexPath.row)
+        
         cell.update(user)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = users[indexPath.row]
-        let detailsVC = DetailsViewController()
-        detailsVC.update(user)
-        present(detailsVC, animated: true)
-    }
-}
-
-extension UsersViewController {
-
-    private func loadUsers() {
-        usersLoader.loadUsers { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let users):
-                self.users = users.users
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let user = users[indexPath.row]
+        //let detailsVC = DetailsViewController()
+        
+        presenter?.userCellSelected(index: indexPath.row)
+        //presenter.didSelectUserCell()
+        
+        //let user = presenter?.getUser(index: indexPath.row)
+        //navigateToDetailsScreen(user)
+        
+//        let detailsVC = DetailsConfigurator().configure()
+//        detailsVC.update(user)
+//        present(detailsVC, animated: true)
     }
 }
 

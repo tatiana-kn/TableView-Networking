@@ -7,8 +7,15 @@
 
 import UIKit
 
-final class DetailsViewController: UIViewController {
+protocol IDetailsViewController: AnyObject {
+    
+    var presenter: IDetailsPresenter? { get set }
+}
+
+final class DetailsViewController: UIViewController, IDetailsViewController {
     var user: User?
+    
+    var presenter: IDetailsPresenter?
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
