@@ -85,10 +85,24 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let user = viewModel.users.value?[indexPath.row] {
-            let viewModel = DetailsViewModel(user: Observable(user))
-            let detailsVC = DetailsViewController(viewModel: viewModel)
-            present(detailsVC, animated: true)
+            navigateToDetailsScreen(Observable(user))
         }
+    }
+}
+
+extension UsersViewController {
+    func navigateToDetailsScreen(_ user: Observable<User>) {
+        let detailsVC = DetailsConfigurator().configure(user)
+        present(detailsVC, animated: true)
+    }
+}
+
+class DetailsConfigurator {
+    
+    func configure(_ user: Observable<User>) -> DetailsViewController {
+        let viewModel = DetailsViewModel(user: user)
+        let detailsVC = DetailsViewController(viewModel: viewModel)
+        return detailsVC
     }
 }
 
