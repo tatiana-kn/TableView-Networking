@@ -22,6 +22,7 @@
 		14CE82152C4935F400381F06 /* UsersLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE82142C4935F400381F06 /* UsersLoader.swift */; };
 		14DBF3522C6CFBA0006AED4B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF3512C6CFBA0006AED4B /* DetailsViewController.swift */; };
 		14DBF3552C6D047E006AED4B /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF3542C6D047E006AED4B /* DetailsViewModel.swift */; };
+		14DBF3712C70B29F006AED4B /* DetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF3702C70B29F006AED4B /* DetailsConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		14CE82142C4935F400381F06 /* UsersLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLoader.swift; sourceTree = "<group>"; };
 		14DBF3512C6CFBA0006AED4B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		14DBF3542C6D047E006AED4B /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		14DBF3702C70B29F006AED4B /* DetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		14DBF3532C6CFFB3006AED4B /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				14DBF3702C70B29F006AED4B /* DetailsConfigurator.swift */,
 				14DBF3512C6CFBA0006AED4B /* DetailsViewController.swift */,
 				14DBF3542C6D047E006AED4B /* DetailsViewModel.swift */,
 			);
@@ -239,6 +242,7 @@
 			files = (
 				14B473582C32C54E0058639D /* User.swift in Sources */,
 				14B473482C32BC1D0058639D /* UsersViewController.swift in Sources */,
+				14DBF3712C70B29F006AED4B /* DetailsConfigurator.swift in Sources */,
 				1413BDD82C51473C00D5642A /* UsersViewModel.swift in Sources */,
 				14DBF3522C6CFBA0006AED4B /* DetailsViewController.swift in Sources */,
 				14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */,

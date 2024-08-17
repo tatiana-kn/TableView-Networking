@@ -97,14 +97,7 @@ extension UsersViewController {
     }
 }
 
-class DetailsConfigurator {
-    
-    func configure(_ user: Observable<User>) -> DetailsViewController {
-        let viewModel = DetailsViewModel(user: user)
-        let detailsVC = DetailsViewController(viewModel: viewModel)
-        return detailsVC
-    }
-}
+
 
 #Preview(traits: .portrait) {
     UsersViewController(viewModel: MockUser())
