@@ -23,6 +23,7 @@
 		14DBF36B2C6FE158006AED4B /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF36A2C6FE158006AED4B /* DetailsPresenter.swift */; };
 		14DBF36D2C6FE1F3006AED4B /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */; };
 		14DBF36F2C6FE253006AED4B /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */; };
+		14DBF37D2C77736D006AED4B /* UsersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF37C2C77736D006AED4B /* UsersInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		14DBF36A2C6FE158006AED4B /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
 		14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
+		14DBF37C2C77736D006AED4B /* UsersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */,
 				14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */,
+				14DBF37C2C77736D006AED4B /* UsersInteractor.swift */,
 				14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */,
 				14B473472C32BC1D0058639D /* UsersViewController.swift */,
 				14DBF35F2C6F5102006AED4B /* Cells */,
@@ -239,6 +242,7 @@
 				14DBF3652C6F6B40006AED4B /* DetailsViewController.swift in Sources */,
 				14B473482C32BC1D0058639D /* UsersViewController.swift in Sources */,
 				14DBF36B2C6FE158006AED4B /* DetailsPresenter.swift in Sources */,
+				14DBF37D2C77736D006AED4B /* UsersInteractor.swift in Sources */,
 				14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */,
 				14DBF36D2C6FE1F3006AED4B /* UsersRouter.swift in Sources */,
 				14B473462C32BC1D0058639D /* SceneDelegate.swift in Sources */,

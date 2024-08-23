@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol UsersLoading {
+protocol IUsersLoader {
     func loadUsers(handler: @escaping(Result<Users, Error>) -> Void)
 }
 
-struct UsersLoader: UsersLoading {
+struct UsersLoader: IUsersLoader {
     private let networkClient: NetworkRouting
     private let decoder: JSONDecoder
     
