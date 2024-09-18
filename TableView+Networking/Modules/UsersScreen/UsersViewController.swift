@@ -7,6 +7,9 @@
 
 import UIKit
 
+//UsersViewInput
+//UsersViewOutput
+
 protocol IUsersViewController: AnyObject {
     
     var presenter: IUsersPresenter? { get set }

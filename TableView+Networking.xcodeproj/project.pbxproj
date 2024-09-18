@@ -144,8 +144,8 @@
 		14DBF3622C6F6AFD006AED4B /* UsersScreen */ = {
 			isa = PBXGroup;
 			children = (
-				14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */,
 				14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */,
+				14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */,
 				14DBF37C2C77736D006AED4B /* UsersInteractor.swift */,
 				14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */,
 				14B473472C32BC1D0058639D /* UsersViewController.swift */,
