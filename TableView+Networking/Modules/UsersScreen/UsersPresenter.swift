@@ -7,59 +7,68 @@
 
 import Foundation
 
-protocol IUsersPresenter: AnyObject {
-    var view: IUsersViewController? { get set }
-    var router: IUsersRouter? { get set }
-    
-    var interactor: IUsersInteractor? { get set }
-    
-    //Events
-    func viewDidLoad()
-    
-    func userCellSelected(index: Int)
-    
-    //Datasource
-    func getUsersCount() -> Int
-    
-    func getUser(index: Int) -> User
-}
+//protocol IUsersPresenter: AnyObject {
+////    var view: IUsersViewController? { get set }
+//    
+////    var view: UsersViewInput? { get set }
+////    var router: IUsersRouter? { get set }
+////    var interactor: InteractorInput? { get set }
+//    
+////    //Events
+////    func viewDidLoad()
+////    
+////    func userCellSelected(index: Int)
+//    
+//    //Datasource
+////    func getUsersCount() -> Int
+////    
+////    func getUser(index: Int) -> User
+//}
 
-final class UsersPresenter: IUsersPresenter {
-    var interactor: IUsersInteractor?
 
+final class UsersPresenter: UsersViewOutput, InteractorOutput {
+    //var presenter: (any UsersViewOutput)?
+    var users: [User] = []
+    
+    var interactor: InteractorInput?
     var usersLoader: IUsersLoader = UsersLoader()
-    
-//    var users: [User] = []
-    
     var router: IUsersRouter?
-    
-    weak var view: IUsersViewController?
+//    weak var view: IUsersViewController?
+    weak var view: UsersViewInput?
     
     func viewDidLoad() {
-        
 //        loadUsers()
         interactor?.loadUsers()
     }
     
     func getUsersCount() -> Int {
 //        return users.count
-        return interactor?.users.count ?? 0
+//        return interactor?.users.count ?? 0
+        return users.count
     }
     
     func getUser(index: Int) -> User {
 //        return users[index]
-        guard let user = interactor?.users[index] else {
-            fatalError("Unable to identify user")
-        }
+//        guard let user = interactor?.users[index] else {
+//            fatalError("Unable to identify user")
+//        }
+        let user = users[index]
         return user
     }
     
     func userCellSelected(index: Int) {
 //        let user = users[index]
-        let user = interactor?.users[index]
+//        let user = interactor?.users[index]
+        let user = users[index]
         router?.navigateToDetailsScreen(user)
     }
+    
+    func loadedUsers(_ users: [User]) {
+        self.users = users
+        view?.reloadTable()
+    }
 }
+
 
 //extension UsersPresenter {
 //    

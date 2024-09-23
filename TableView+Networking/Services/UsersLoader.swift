@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IUsersLoader {
-    func loadUsers(handler: @escaping(Result<Users, Error>) -> Void)
+    func loadUsers(handler: @escaping(Result<[User], Error>) -> Void)
 }
 
 struct UsersLoader: IUsersLoader {
@@ -28,12 +28,13 @@ struct UsersLoader: IUsersLoader {
         return url
     }
     
-    func loadUsers(handler: @escaping (Result<Users, Error>) -> Void) {
+    func loadUsers(handler: @escaping (Result<[User], Error>) -> Void) {
         networkClient.fetch(url: usersURL) { result in
             switch result {
             case .success(let data):
                 do {
-                    let users = try decoder.decode(Users.self, from: data)
+                    let usersResponse = try decoder.decode(UsersResponse.self, from: data)
+                    let users = usersResponse.users
                     handler(.success(users))
                 } catch {
                     handler(.failure(error))

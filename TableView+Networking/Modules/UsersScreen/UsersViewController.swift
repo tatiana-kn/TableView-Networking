@@ -10,20 +10,41 @@ import UIKit
 //UsersViewInput
 //UsersViewOutput
 
-protocol IUsersViewController: AnyObject {
-    
-    var presenter: IUsersPresenter? { get set }
+//protocol IUsersViewController: AnyObject {
+//    
+//    var presenter: IUsersPresenter? { get set }
+//    
+//    //Update View
+//    func reloadTable()
+//    
+//    //Navigation
+//    //func navigateToDetailsScreen(_ user: User?)
+//}
+
+protocol UsersViewInput: AnyObject {
+    var presenter: UsersViewOutput? { get set }
     
     //Update View
     func reloadTable()
-    
-    //Navigation
-    //func navigateToDetailsScreen(_ user: User?)
 }
 
-final class UsersViewController: UIViewController, IUsersViewController {
+protocol UsersViewOutput {
+    
+    //Events
+    func viewDidLoad()
+    
+    func userCellSelected(index: Int)
+    
+    //Datasource
+    func getUsersCount() -> Int
+    
+    func getUser(index: Int) -> User
+}
 
-    var presenter: IUsersPresenter?
+
+final class UsersViewController: UIViewController, UsersViewInput {
+
+    var presenter: UsersViewOutput?
     
     //var usersLoader: UsersLoading = UsersLoader()
     
