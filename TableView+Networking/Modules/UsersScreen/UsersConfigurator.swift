@@ -26,17 +26,3 @@ class UsersConfigurator {
     }
 }
 
-//final class UsersConfigurator {
-//    
-//    func configure() -> UsersViewController {
-//        
-//        let controller = UsersViewController()
-//        
-//        let networkClient = NetworkClient()
-//        let decoder = JSONDecoder()
-//        
-//        controller.usersLoader = UsersLoader.init(networkClient: networkClient, decoder: decoder)
-//        
-//        return controller
-//    }
-//}

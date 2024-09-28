@@ -7,20 +7,6 @@
 
 import UIKit
 
-//UsersViewInput
-//UsersViewOutput
-
-//protocol IUsersViewController: AnyObject {
-//    
-//    var presenter: IUsersPresenter? { get set }
-//    
-//    //Update View
-//    func reloadTable()
-//    
-//    //Navigation
-//    //func navigateToDetailsScreen(_ user: User?)
-//}
-
 protocol UsersViewInput: AnyObject {
     var presenter: UsersViewOutput? { get set }
     
@@ -32,21 +18,17 @@ protocol UsersViewOutput {
     
     //Events
     func viewDidLoad()
-    
     func userCellSelected(index: Int)
     
     //Datasource
     func getUsersCount() -> Int
-    
     func getUser(index: Int) -> User
 }
 
 
 final class UsersViewController: UIViewController, UsersViewInput {
-
-    var presenter: UsersViewOutput?
     
-    //var usersLoader: UsersLoading = UsersLoader()
+    var presenter: UsersViewOutput?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -55,7 +37,7 @@ final class UsersViewController: UIViewController, UsersViewInput {
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseID)
         return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +45,6 @@ final class UsersViewController: UIViewController, UsersViewInput {
         setupConstraints()
         
         presenter?.viewDidLoad()
-        //loadUsers()
     }
     
     func reloadTable() {
@@ -90,7 +71,6 @@ extension UsersViewController {
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //users.count
         presenter?.getUsersCount() ?? 0
     }
     
@@ -98,7 +78,6 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
             return UITableViewCell()
         }
-        //let user = users[indexPath.row]
         
         let user = presenter?.getUser(index: indexPath.row)
         
@@ -107,18 +86,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let user = users[indexPath.row]
-        //let detailsVC = DetailsViewController()
-        
         presenter?.userCellSelected(index: indexPath.row)
-        //presenter.didSelectUserCell()
-        
-        //let user = presenter?.getUser(index: indexPath.row)
-        //navigateToDetailsScreen(user)
-        
-//        let detailsVC = DetailsConfigurator().configure()
-//        detailsVC.update(user)
-//        present(detailsVC, animated: true)
     }
 }
 
