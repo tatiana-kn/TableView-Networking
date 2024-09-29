@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145653792CA821FF0039C8AE /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145653782CA821FF0039C8AE /* DetailsInteractor.swift */; };
 		14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B473432C32BC1D0058639D /* AppDelegate.swift */; };
 		14B473462C32BC1D0058639D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B473452C32BC1D0058639D /* SceneDelegate.swift */; };
 		14B473482C32BC1D0058639D /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B473472C32BC1D0058639D /* UsersViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145653782CA821FF0039C8AE /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
 		14B473402C32BC1D0058639D /* TableView+Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TableView+Networking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B473432C32BC1D0058639D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B473452C32BC1D0058639D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				14DBF3682C6FE12B006AED4B /* DetailsConfigurator.swift */,
+				145653782CA821FF0039C8AE /* DetailsInteractor.swift */,
 				14DBF36A2C6FE158006AED4B /* DetailsPresenter.swift */,
 				14DBF3642C6F6B40006AED4B /* DetailsViewController.swift */,
 			);
@@ -245,6 +248,7 @@
 				14DBF37D2C77736D006AED4B /* UsersInteractor.swift in Sources */,
 				14B473442C32BC1D0058639D /* AppDelegate.swift in Sources */,
 				14DBF36D2C6FE1F3006AED4B /* UsersRouter.swift in Sources */,
+				145653792CA821FF0039C8AE /* DetailsInteractor.swift in Sources */,
 				14B473462C32BC1D0058639D /* SceneDelegate.swift in Sources */,
 				14DBF35E2C6F4B0D006AED4B /* UsersConfigurator.swift in Sources */,
 				14CE82132C492ECD00381F06 /* NetworkClient.swift in Sources */,

@@ -7,24 +7,24 @@
 
 import Foundation
 
-protocol InteractorInput: AnyObject {
-    var presenter:  InteractorOutput? { get set }
+protocol UsersInteractorInput: AnyObject {
+    var presenter:  UsersInteractorOutput? { get set }
     
     func loadUsers()
 }
 
-protocol InteractorOutput: AnyObject {
+protocol UsersInteractorOutput: AnyObject {
     
     var view: UsersViewInput? { get set }
     var router: IUsersRouter? { get set }
-    var interactor: InteractorInput? { get set }
+    var interactor: UsersInteractorInput? { get set }
     
     func loadedUsers(_ users: [User])
 }
 
-final class UsersInteractor: InteractorInput {
+final class UsersInteractor: UsersInteractorInput {
     
-    weak var presenter: InteractorOutput?
+    weak var presenter: UsersInteractorOutput?
     var usersLoader: IUsersLoader = UsersLoader()
 }
 

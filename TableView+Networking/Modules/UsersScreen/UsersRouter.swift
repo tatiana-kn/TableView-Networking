@@ -18,8 +18,9 @@ class UsersRouter: IUsersRouter {
     weak var view: UsersViewController?
     
     func navigateToDetailsScreen(_ user: User?) {
-        let detailsVC = DetailsConfigurator().configure()
-        detailsVC.update(user)
+//        let detailsVC = DetailsConfigurator().configure()
+        let detailsVC = DetailsConfigurator().configure(with: user)
+        
         view?.present(detailsVC, animated: true)
     }
 }

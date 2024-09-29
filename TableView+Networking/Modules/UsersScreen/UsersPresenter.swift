@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class UsersPresenter: UsersViewOutput, InteractorOutput {
+final class UsersPresenter: UsersViewOutput, UsersInteractorOutput {
     
     var users: [User] = []
     
-    var interactor: InteractorInput?
+    var interactor: UsersInteractorInput?
     var usersLoader: IUsersLoader = UsersLoader()
     var router: IUsersRouter?
     weak var view: UsersViewInput?

@@ -8,12 +8,17 @@
 import Foundation
 
 class DetailsConfigurator {
-    func configure() -> DetailsViewController {
+    func configure(with user: User?) -> DetailsViewController {
         let detailsVC = DetailsViewController()
         let detailsPresenter = DetailsPresenter()
+        let detailsInteractor = DetailsInteractor()
         
         detailsVC.presenter = detailsPresenter
         detailsPresenter.view = detailsVC
+        detailsPresenter.interactor = detailsInteractor
+        detailsInteractor.presenter = detailsPresenter
+        
+        detailsInteractor.getUser(user)
         
         return detailsVC
     }

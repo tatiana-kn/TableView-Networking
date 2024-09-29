@@ -7,10 +7,14 @@
 
 import Foundation
 
-protocol IDetailsPresenter: AnyObject {
-    var view: IDetailsViewController? { get set }
-}
-
-final class DetailsPresenter: IDetailsPresenter {
-    weak var view: IDetailsViewController?
+final class DetailsPresenter: DetailsViewOutput, DetailsInteractorOutput {
+    var user: User?
+    
+    var interactor: DetailsInteractorInput?
+    weak var view: DetailsViewInput?
+    
+    func didGetUser(_ user: User?) {
+        self.user = user
+        view?.update(user)
+    }
 }

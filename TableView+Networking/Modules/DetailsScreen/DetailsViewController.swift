@@ -7,15 +7,18 @@
 
 import UIKit
 
-protocol IDetailsViewController: AnyObject {
-    
-    var presenter: IDetailsPresenter? { get set }
+protocol DetailsViewInput: AnyObject {
+    var presenter: DetailsViewOutput? { get set }
+    func update(_ user: User?)
 }
 
-final class DetailsViewController: UIViewController, IDetailsViewController {
+protocol DetailsViewOutput: AnyObject {
+}
+
+final class DetailsViewController: UIViewController, DetailsViewInput {
     var user: User?
     
-    var presenter: IDetailsPresenter?
+    var presenter: DetailsViewOutput?
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
