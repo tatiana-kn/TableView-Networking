@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol NetworkRouting {
+protocol INetworkClient {
     func fetch(url: URL, handler: @escaping(Result<Data, Error>) -> Void)
 }
 
-struct NetworkClient: NetworkRouting {
+struct NetworkClient: INetworkClient {
     
     private enum NetworkError: Error {
         case codeError

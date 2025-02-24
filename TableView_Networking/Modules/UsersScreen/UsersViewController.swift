@@ -9,7 +9,7 @@ import UIKit
 
 protocol IUsersViewController: AnyObject {
     
-    var presenter: IUsersPresenter? { get set }
+    var presenter: IUsersPresenter { get set }
     
     //Update View
     func reloadTable()
@@ -19,8 +19,17 @@ protocol IUsersViewController: AnyObject {
 }
 
 final class UsersViewController: UIViewController, IUsersViewController {
-
-    var presenter: IUsersPresenter?
+    
+    var presenter: IUsersPresenter
+    
+    init(presenter: IUsersPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //var usersLoader: UsersLoading = UsersLoader()
     
@@ -38,12 +47,46 @@ final class UsersViewController: UIViewController, IUsersViewController {
         setupViews()
         setupConstraints()
         
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
         //loadUsers()
     }
     
     func reloadTable() {
         tableView.reloadData()
+    }
+}
+
+extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //users.count
+        presenter.getUsersCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
+            return UITableViewCell()
+        }
+        //let user = users[indexPath.row]
+        
+        let user = presenter.getUser(index: indexPath.row)
+        
+        cell.update(user)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let user = users[indexPath.row]
+        //let detailsVC = DetailsViewController()
+        
+        presenter.userCellSelected(index: indexPath.row)
+        //presenter.didSelectUserCell()
+        
+        //let user = presenter?.getUser(index: indexPath.row)
+        //navigateToDetailsScreen(user)
+        
+//        let detailsVC = DetailsConfigurator().configure()
+//        detailsVC.update(user)
+//        present(detailsVC, animated: true)
     }
 }
 
@@ -62,42 +105,4 @@ extension UsersViewController {
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
     }
-}
-
-extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //users.count
-        presenter?.getUsersCount() ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseID, for: indexPath) as? UserCell else {
-            return UITableViewCell()
-        }
-        //let user = users[indexPath.row]
-        
-        let user = presenter?.getUser(index: indexPath.row)
-        
-        cell.update(user)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let user = users[indexPath.row]
-        //let detailsVC = DetailsViewController()
-        
-        presenter?.userCellSelected(index: indexPath.row)
-        //presenter.didSelectUserCell()
-        
-        //let user = presenter?.getUser(index: indexPath.row)
-        //navigateToDetailsScreen(user)
-        
-//        let detailsVC = DetailsConfigurator().configure()
-//        detailsVC.update(user)
-//        present(detailsVC, animated: true)
-    }
-}
-
-#Preview(traits: .portrait) {
-    UsersViewController()
 }

@@ -24,13 +24,15 @@ protocol IUsersPresenter: AnyObject {
 
 final class UsersPresenter: IUsersPresenter {
     
-    var usersLoader: UsersLoading = UsersLoader()
+    var usersLoader: IUsersLoader
+    var router: IUsersRouter?
+    weak var view: IUsersViewController?
     
     var users: [User] = []
     
-    var router: IUsersRouter?
-    
-    weak var view: IUsersViewController?
+    init(usersLoader: IUsersLoader) {
+        self.usersLoader = usersLoader
+    }
     
     func viewDidLoad() {
         loadUsers()

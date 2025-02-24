@@ -36,8 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		144B689C2D699EED00D403C1 /* TableView-NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TableView-NetworkingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		14B473402C32BC1D0058639D /* TableView-Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TableView-Networking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		144B689C2D699EED00D403C1 /* TableView_NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableView_NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B473402C32BC1D0058639D /* TableView_Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView_Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B473432C32BC1D0058639D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B473452C32BC1D0058639D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		14B473472C32BC1D0058639D /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		14B473372C32BC1D0058639D = {
 			isa = PBXGroup;
 			children = (
-				14B473422C32BC1D0058639D /* TableView-Networking */,
+				14B473422C32BC1D0058639D /* TableView_Networking */,
 				144B689D2D699EED00D403C1 /* TableView_NetworkingTests */,
 				14B473412C32BC1D0058639D /* Products */,
 			);
@@ -91,13 +91,13 @@
 		14B473412C32BC1D0058639D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14B473402C32BC1D0058639D /* TableView-Networking.app */,
-				144B689C2D699EED00D403C1 /* TableView-NetworkingTests.xctest */,
+				14B473402C32BC1D0058639D /* TableView_Networking.app */,
+				144B689C2D699EED00D403C1 /* TableView_NetworkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14B473422C32BC1D0058639D /* TableView-Networking */ = {
+		14B473422C32BC1D0058639D /* TableView_Networking */ = {
 			isa = PBXGroup;
 			children = (
 				14DBF3582C6F4A05006AED4B /* App */,
@@ -106,7 +106,7 @@
 				14DBF35B2C6F4A5D006AED4B /* Services */,
 				14DBF35C2C6F4A87006AED4B /* Resources */,
 			);
-			path = "TableView-Networking";
+			path = TableView_Networking;
 			sourceTree = "<group>";
 		};
 		14DBF3582C6F4A05006AED4B /* App */ = {
@@ -166,8 +166,8 @@
 		14DBF3622C6F6AFD006AED4B /* UsersScreen */ = {
 			isa = PBXGroup;
 			children = (
-				14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */,
 				14DBF35D2C6F4B0D006AED4B /* UsersConfigurator.swift */,
+				14DBF36C2C6FE1F3006AED4B /* UsersRouter.swift */,
 				14DBF36E2C6FE253006AED4B /* UsersPresenter.swift */,
 				14B473472C32BC1D0058639D /* UsersViewController.swift */,
 				14DBF35F2C6F5102006AED4B /* Cells */,
@@ -188,9 +188,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		144B689B2D699EED00D403C1 /* TableView-NetworkingTests */ = {
+		144B689B2D699EED00D403C1 /* TableView_NetworkingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 144B68A22D699EED00D403C1 /* Build configuration list for PBXNativeTarget "TableView-NetworkingTests" */;
+			buildConfigurationList = 144B68A22D699EED00D403C1 /* Build configuration list for PBXNativeTarget "TableView_NetworkingTests" */;
 			buildPhases = (
 				144B68982D699EED00D403C1 /* Sources */,
 				144B68992D699EED00D403C1 /* Frameworks */,
@@ -204,16 +204,16 @@
 			fileSystemSynchronizedGroups = (
 				144B689D2D699EED00D403C1 /* TableView_NetworkingTests */,
 			);
-			name = "TableView-NetworkingTests";
+			name = TableView_NetworkingTests;
 			packageProductDependencies = (
 			);
 			productName = "TableView+NetworkingTests";
-			productReference = 144B689C2D699EED00D403C1 /* TableView-NetworkingTests.xctest */;
+			productReference = 144B689C2D699EED00D403C1 /* TableView_NetworkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		14B4733F2C32BC1D0058639D /* TableView-Networking */ = {
+		14B4733F2C32BC1D0058639D /* TableView_Networking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14B473542C32BC200058639D /* Build configuration list for PBXNativeTarget "TableView-Networking" */;
+			buildConfigurationList = 14B473542C32BC200058639D /* Build configuration list for PBXNativeTarget "TableView_Networking" */;
 			buildPhases = (
 				14B4733C2C32BC1D0058639D /* Sources */,
 				14B4733D2C32BC1D0058639D /* Frameworks */,
@@ -223,9 +223,9 @@
 			);
 			dependencies = (
 			);
-			name = "TableView-Networking";
+			name = TableView_Networking;
 			productName = "TableView+Networking";
-			productReference = 14B473402C32BC1D0058639D /* TableView-Networking.app */;
+			productReference = 14B473402C32BC1D0058639D /* TableView_Networking.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -247,7 +247,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 14B4733B2C32BC1D0058639D /* Build configuration list for PBXProject "TableView-Networking" */;
+			buildConfigurationList = 14B4733B2C32BC1D0058639D /* Build configuration list for PBXProject "TableView_Networking" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -260,8 +260,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14B4733F2C32BC1D0058639D /* TableView-Networking */,
-				144B689B2D699EED00D403C1 /* TableView-NetworkingTests */,
+				14B4733F2C32BC1D0058639D /* TableView_Networking */,
+				144B689B2D699EED00D403C1 /* TableView_NetworkingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -319,7 +319,7 @@
 /* Begin PBXTargetDependency section */
 		144B68A12D699EED00D403C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14B4733F2C32BC1D0058639D /* TableView-Networking */;
+			target = 14B4733F2C32BC1D0058639D /* TableView_Networking */;
 			targetProxy = 144B68A02D699EED00D403C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -351,14 +351,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ta.tiana.TableView-NetworkingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableView-Networking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TableView-Networking";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableView_Networking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TableView_Networking";
 			};
 			name = Debug;
 		};
@@ -369,14 +369,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ta.tiana.TableView-NetworkingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableView-Networking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TableView-Networking";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableView_Networking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TableView_Networking";
 			};
 			name = Release;
 		};
@@ -507,7 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TableView+Networking/Resources/Info.plist";
+				INFOPLIST_FILE = TableView_Networking/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -539,7 +539,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TableView+Networking/Resources/Info.plist";
+				INFOPLIST_FILE = TableView_Networking/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -566,7 +566,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		144B68A22D699EED00D403C1 /* Build configuration list for PBXNativeTarget "TableView-NetworkingTests" */ = {
+		144B68A22D699EED00D403C1 /* Build configuration list for PBXNativeTarget "TableView_NetworkingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				144B68A32D699EED00D403C1 /* Debug */,
@@ -575,7 +575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14B4733B2C32BC1D0058639D /* Build configuration list for PBXProject "TableView-Networking" */ = {
+		14B4733B2C32BC1D0058639D /* Build configuration list for PBXProject "TableView_Networking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14B473522C32BC200058639D /* Debug */,
@@ -584,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14B473542C32BC200058639D /* Build configuration list for PBXNativeTarget "TableView-Networking" */ = {
+		14B473542C32BC200058639D /* Build configuration list for PBXNativeTarget "TableView_Networking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14B473552C32BC200058639D /* Debug */,

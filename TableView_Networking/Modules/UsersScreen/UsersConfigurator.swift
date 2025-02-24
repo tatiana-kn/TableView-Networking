@@ -9,8 +9,9 @@ import Foundation
 
 class UsersConfigurator {
     func configure() -> UsersViewController {
-        let usersVC = UsersViewController()
-        let usersPresenter = UsersPresenter()
+        let usersLoader = UsersLoader()
+        let usersPresenter = UsersPresenter(usersLoader: usersLoader)
+        let usersVC = UsersViewController(presenter: usersPresenter)
         let usersRouter = UsersRouter()
         
         usersVC.presenter = usersPresenter
